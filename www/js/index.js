@@ -32,22 +32,21 @@ var app = {
         window.FirebasePlugin.getToken(function(token) {
     // save this server-side and use it to push notifications to this device
     console.log("ESTE E O TOKEN DO FIREBASE:" + token);
+    document.getElementById("tokennovo").innerHTML=token;
     }, function(error) {
     console.error(error);
    });
 
-   window.FirebasePlugin.onTokenRefresh(function(token) {
+window.FirebasePlugin.onTokenRefresh(function(token) {
     // save this server-side and use it to push notifications to this device
     console.log("ESTE E O TOKEN ATUALIZADO:" + token); //Sobre-escrever o token antigo do dispositivo sempre.
+    document.getElementById("tokennovo").innerHTML=token;
 }, function(error) {
     console.error(error);
-});
+});   
 
-function notifPeriod(){
-setInterval(function(){
-//Mandar uma notificação para o meu dispositivo de tempo em tempo(Demonstrar o conceito de checar se o usuario tem vacinas para tomar...)
+function getTokenId(){
 
-},4000)    
 
 }
 
